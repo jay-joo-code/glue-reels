@@ -50,7 +50,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
 
-  tasks Task[]
+  memories Memory[]
 
   @@map(name: "users")
 }
@@ -64,15 +64,20 @@ model VerificationToken {
   @@map("verificationtokens")
 }
 
-model Task {
-  id          Int      @id @default(autoincrement())
-  createdAt   DateTime @default(now()) @map(name: "created_at")
-  updatedAt   DateTime @updatedAt @map(name: "updated_at")
-  userId      Int?     @map("user_id")
-  user        User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  isValidated Boolean  @default(false)
+model Memory {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
 
-  name String? @default("")
+  userId Int?  @map("user_id")
+  user   User? @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@map(name: "tasks")
+  title    String? @default("")
+  location String? @default("")
+  photo1   String? @default("")
+  photo2   String? @default("")
+  photo3   String? @default("")
+  content  String? @default("")
+
+  @@map(name: "memory")
 }
