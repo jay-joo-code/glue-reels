@@ -1,5 +1,5 @@
 const appConfig = {
-  name: "ReferHub",
+  name: "Reels",
 }
 
 export default appConfig
