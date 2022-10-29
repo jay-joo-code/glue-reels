@@ -85,6 +85,7 @@ const MemoryItem = ({ memory }: IMemoryItemProps) => {
             input: {
               fontWeight: 600,
               letterSpacing: ".02rem",
+              textAlign: "right",
             },
           })}
         />
